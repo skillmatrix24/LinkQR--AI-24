@@ -1,0 +1,22 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-bg",
+      "description": "Modern abstract background with purple tones",
+      "imageUrl": "https://images.unsplash.com/photo-1563089145-599997674d42?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhYnN0cmFjdCUyMHB1cnBsZXxlbnwwfHx8fDE3NzEzMjQ4OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract purple"
+    },
+    {
+      "id": "dashboard-preview",
+      "description": "A sleek SaaS dashboard interface",
+      "imageUrl": "https://images.unsplash.com/photo-1748609160056-7b95f30041f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxkYXNoYm9hcmQlMjBhbmFseXRpY3N8ZW58MHx8fHwxNzcxMzA4MzU3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "dashboard analytics"
+    },
+    {
+      "id": "ai-studio-preview",
+      "description": "AI generating luxury QR code styles",
+      "imageUrl": "https://picsum.photos/seed/aiqr-studio/1200/800",
+      "imageHint": "ai robot"
+    }
+  ]
+}

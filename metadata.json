@@ -1,0 +1,7 @@
+{
+  "name": "LinkQR AI",
+  "description": "Enterprise Dynamic & AI QR Code Generator with Real-time BI Analytics and Digital ID Cards",
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

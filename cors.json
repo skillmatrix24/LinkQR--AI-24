@@ -1,0 +1,14 @@
+[
+  {
+    "origin": [
+      "https://*.cloudworkstations.dev",
+      "http://localhost:3000",
+      "http://localhost:9002",
+      "https://linkqr.in",
+      "https://www.linkqr.in"
+    ],
+    "method": ["GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS"],
+    "responseHeader": ["Content-Type", "Authorization", "x-goog-resumable"],
+    "maxAgeSeconds": 3600
+  }
+]

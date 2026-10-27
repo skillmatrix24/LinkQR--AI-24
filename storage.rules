@@ -1,0 +1,42 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // Simple and high-priority admin check
+    function isSuperAdmin() {
+      return request.auth != null && (
+        request.auth.uid in ["nTKXNu6jj6a1DHrLvgsgahZ4nXu1", "4gPQqPsHUShpFRoxyaW5prNNh4h2"] ||
+        request.auth.token.email in ["admin@test.com", "skillmatrix24@gmail.com"]
+      );
+    }
+
+    function isOwner(uid) {
+      return request.auth != null && request.auth.uid == uid;
+    }
+
+    // 1. Templates Folder - Explicit Admin Write
+    match /templates/{allPaths=**} {
+      allow read: if true;
+      allow write: if isSuperAdmin();
+    }
+
+    // 2. User Specific Files
+    match /users/{userId}/{allPaths=**} {
+      allow read: if isOwner(userId) || isSuperAdmin();
+      allow write: if isOwner(userId) || isSuperAdmin();
+    }
+
+    // 3. Blog Assets
+    match /blog/{allPaths=**} {
+      allow read: if true;
+      allow write: if isSuperAdmin();
+    }
+
+    // 4. Fallback Global Admin Access
+    match /{allPaths=**} {
+      allow read: if true;
+      allow write: if isSuperAdmin();
+    }
+  }
+}

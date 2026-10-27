@@ -1,0 +1,162 @@
+
+{
+  "entities": {
+    "Review": {
+      "title": "Review",
+      "type": "object",
+      "description": "Represents a user's feedback or rating for the QikQR application.",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "userPhoto": { "type": "string" },
+        "rating": { "type": "number" },
+        "comment": { "type": "string" },
+        "submittedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "userId", "rating", "comment", "submittedAt"]
+    },
+    "BlogPost": {
+      "title": "BlogPost",
+      "type": "object",
+      "description": "A dynamic bilingual article managed from the admin panel.",
+      "properties": {
+        "id": { "type": "string" },
+        "slug": { "type": "string" },
+        "titleEn": { "type": "string" },
+        "titleHi": { "type": "string" },
+        "excerptEn": { "type": "string" },
+        "excerptHi": { "type": "string" },
+        "contentEn": { "type": "string" },
+        "contentHi": { "type": "string" },
+        "category": { "type": "string" },
+        "image": { "type": "string" },
+        "author": { "type": "string" },
+        "status": { "type": "string", "enum": ["draft", "published", "scheduled"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "slug", "titleEn", "contentEn"]
+    },
+    "SmartTemplate": {
+      "title": "SmartTemplate",
+      "type": "object",
+      "description": "A pre-defined page or block configuration saved by the owner.",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "thumbnail": { "type": "string" },
+        "categories": { "type": "array", "items": { "type": "string" } },
+        "type": { "type": "string", "enum": ["full-page", "block"] },
+        "targetBlockType": { "type": "string", "description": "If type is block, which block type this is (e.g. hero, benefits)" },
+        "data": { "type": "object", "description": "The configuration data for the block or page" },
+        "sections": { "type": "array", "items": { "type": "object" }, "description": "For full-page templates" },
+        "design": { "type": "object", "description": "Global design settings like themeColor, fontType" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "name", "type"]
+    },
+    "MicroSite": {
+      "title": "MicroSite",
+      "type": "object",
+      "description": "A user-generated promotional landing page.",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "slug": { "type": "string" },
+        "businessName": { "type": "string" },
+        "logoUrl": { "type": "string" },
+        "aiGoal": { "type": "string" },
+        "sections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "type": { "type": "string" },
+              "data": { "type": "object" }
+            }
+          }
+        },
+        "createdAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "DigitalID": {
+      "title": "DigitalID",
+      "type": "object",
+      "description": "A professional digital business card for individuals and teams.",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "fullName": { "type": "string" },
+        "designation": { "type": "string" },
+        "company": { "type": "string" },
+        "bio": { "type": "string" },
+        "mobile": { "type": "string" },
+        "email": { "type": "string" },
+        "website": { "type": "string" },
+        "socialLinks": { "type": "array", "items": { "type": "object" } },
+        "vcfUrl": { "type": "string" },
+        "stats": { "type": "object" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "UserLead": {
+      "title": "UserLead",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "micrositeId": { "type": "string" },
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "mobile": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "CustomDomain": {
+      "title": "CustomDomain",
+      "type": "object",
+      "description": "User-owned custom domain for white-label link redirection.",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "domain": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "verified", "active", "error"] },
+        "dnsValue": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "userId", "domain", "status"]
+    }
+  },
+  "auth": {
+    "providers": ["password", "anonymous", "google", "phone"]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/reviews/{reviewId}",
+        "definition": { "entityName": "Review", "schema": { "$ref": "#/backend/entities/Review" } }
+      },
+      {
+        "path": "/blogPosts/{postId}",
+        "definition": { "entityName": "BlogPost", "schema": { "$ref": "#/backend/entities/BlogPost" } }
+      },
+      {
+        "path": "/smartTemplates/{templateId}",
+        "definition": { "entityName": "SmartTemplate", "schema": { "$ref": "#/backend/entities/SmartTemplate" } }
+      },
+      {
+        "path": "/users/{userId}/microsites/{siteId}",
+        "definition": { "entityName": "MicroSite", "schema": { "$ref": "#/backend/entities/MicroSite" } }
+      },
+      {
+        "path": "/users/{userId}/digitalIDs/{cardId}",
+        "definition": { "entityName": "DigitalID", "schema": { "$ref": "#/backend/entities/DigitalID" } }
+      },
+      {
+        "path": "/customDomains/{domainId}",
+        "definition": { "entityName": "CustomDomain", "schema": { "$ref": "#/backend/entities/CustomDomain" } }
+      }
+    ]
+  }
+}
