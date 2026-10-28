@@ -25,7 +25,7 @@ export type CTAOutput = z.infer<typeof CTAOutputSchema>;
 
 const ctaPrompt = ai.definePrompt({
   name: 'generateCTAPrompt',
-  model: 'googleai/gemini-flash-latest',
+  model: 'googleai/gemini-3.8-flash',
   input: {schema: CTAInputSchema},
   output: {schema: CTAOutputSchema},
   prompt: `Generate catchy QR CTAs for {{{businessType}}}.`,

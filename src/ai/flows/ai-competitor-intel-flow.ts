@@ -27,7 +27,7 @@ export type CompetitorOutput = z.infer<typeof CompetitorOutputSchema>;
 
 const competitorPrompt = ai.definePrompt({
   name: 'analyzeCompetitorStandingPrompt',
-  model: 'googleai/gemini-flash-latest',
+  model: 'googleai/gemini-3.8-flash',
   input: {schema: CompetitorInputSchema},
   output: {schema: CompetitorOutputSchema},
   prompt: `Analyze competitor standing for a {{{category}}} business.`,

@@ -25,7 +25,7 @@ export type BlogAIOutput = z.infer<typeof BlogAIOutputSchema>;
 
 const blogAssistantPrompt = ai.definePrompt({
   name: 'blogAssistantPrompt',
-  model: 'googleai/gemini-flash-latest',
+  model: 'googleai/gemini-3.8-flash',
   input: {schema: BlogAIInputSchema},
   output: {schema: BlogAIOutputSchema},
   prompt: `Analyze this blog content: {{{content}}}.`,

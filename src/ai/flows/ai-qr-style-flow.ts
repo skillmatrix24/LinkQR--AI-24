@@ -25,7 +25,7 @@ export type AIQRStyleOutput = z.infer<typeof AIQRStyleOutputSchema>;
 
 const qrStylePrompt = ai.definePrompt({
   name: 'generateQRStylePrompt',
-  model: 'googleai/gemini-flash-latest',
+  model: 'googleai/gemini-3.8-flash',
   input: {schema: z.object({prompt: z.string()})},
   output: {schema: AIQRStyleOutputSchema},
   prompt: `You are an elite Visual Identity Designer specializing in high-contrast scannable art.

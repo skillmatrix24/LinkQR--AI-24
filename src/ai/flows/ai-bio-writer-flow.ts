@@ -24,7 +24,7 @@ export type BioOutput = z.infer<typeof BioOutputSchema>;
 
 const bioPrompt = ai.definePrompt({
   name: 'generateProfessionalBio',
-  model: 'googleai/gemini-flash-latest',
+  model: 'googleai/gemini-3.8-flash',
   input: {schema: BioInputSchema},
   output: {schema: BioOutputSchema},
   prompt: `You are a High-End Executive Ghostwriter.

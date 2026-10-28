@@ -30,7 +30,7 @@ export type RevenueOutput = z.infer<typeof RevenueOutputSchema>;
 
 const revenuePrompt = ai.definePrompt({
   name: 'generateRevenueInsightsPrompt',
-  model: 'googleai/gemini-flash-latest',
+  model: 'googleai/gemini-3.8-flash',
   input: {schema: RevenueInputSchema},
   output: {schema: RevenueOutputSchema},
   prompt: `Analyze revenue potential for scans: {{{totalScans}}}.`,

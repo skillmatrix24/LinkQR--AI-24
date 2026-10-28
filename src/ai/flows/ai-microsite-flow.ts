@@ -132,7 +132,7 @@ export type MicroSiteOutput = z.infer<typeof MicroSiteOutputSchema>;
 
 const microSitePrompt = ai.definePrompt({
   name: 'universalMicrositePromptV6',
-  model: 'googleai/gemini-flash-latest',
+  model: 'googleai/gemini-3.8-flash',
   input: {schema: MicroSiteInputSchema},
   output: {schema: MicroSiteOutputSchema},
   config: {

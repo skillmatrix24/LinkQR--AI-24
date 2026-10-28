@@ -28,7 +28,7 @@ export type BehaviorOutput = z.infer<typeof BehaviorOutputSchema>;
 
 const behaviorPrompt = ai.definePrompt({
   name: 'analyzeBehaviorPrompt',
-  model: 'googleai/gemini-flash-latest',
+  model: 'googleai/gemini-3.8-flash',
   input: {schema: BehaviorInputSchema},
   output: {schema: BehaviorOutputSchema},
   prompt: `You are an expert Data Scientist. 

@@ -31,7 +31,7 @@ export type SegmentationOutput = z.infer<typeof SegmentationOutputSchema>;
 
 const segmentationPrompt = ai.definePrompt({
   name: 'generateSegmentationPrompt',
-  model: 'googleai/gemini-flash-latest',
+  model: 'googleai/gemini-3.8-flash',
   input: {schema: SegmentationInputSchema},
   output: {schema: SegmentationOutputSchema},
   prompt: `Segment customers based on these logs: {{{scanLogs}}}.`,

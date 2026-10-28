@@ -32,7 +32,7 @@ export type BrandKitOutput = z.infer<typeof BrandKitOutputSchema>;
 
 const brandPrompt = ai.definePrompt({
   name: 'enterpriseBrandKitPrompt',
-  model: 'googleai/gemini-flash-latest',
+  model: 'googleai/gemini-3.8-flash',
   input: {schema: BrandKitInputSchema},
   output: {schema: BrandKitOutputSchema},
   prompt: `You are a Global Branding Expert.

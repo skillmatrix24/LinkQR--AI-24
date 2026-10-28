@@ -43,7 +43,7 @@ export type CampaignOutput = z.infer<typeof CampaignOutputSchema>;
 
 const campaignPrompt = ai.definePrompt({
   name: 'advancedCampaignAgentPrompt',
-  model: 'googleai/gemini-flash-latest',
+  model: 'googleai/gemini-3.8-flash',
   input: {schema: CampaignInputSchema},
   output: {schema: CampaignOutputSchema},
   prompt: `Create a marketing blueprint for {{{businessType}}}.`,

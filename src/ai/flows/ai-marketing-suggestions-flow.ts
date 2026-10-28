@@ -30,7 +30,7 @@ export type MarketingOutput = z.infer<typeof MarketingOutputSchema>;
 
 const marketingPrompt = ai.definePrompt({
   name: 'generateMarketingSuggestionsPrompt',
-  model: 'googleai/gemini-flash-latest',
+  model: 'googleai/gemini-3.8-flash',
   input: {schema: MarketingInputSchema},
   output: {schema: MarketingOutputSchema},
   prompt: `Generate marketing suggestions for industry: {{{industry}}}.`,

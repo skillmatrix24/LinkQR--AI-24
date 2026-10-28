@@ -25,7 +25,7 @@ export type ChatOutput = z.infer<typeof ChatOutputSchema>;
 
 const chatbotPrompt = ai.definePrompt({
   name: 'linkQRAIAssistant',
-  model: 'googleai/gemini-flash-latest',
+  model: 'googleai/gemini-3.8-flash',
   input: { schema: ChatInputSchema },
   output: { schema: ChatOutputSchema },
   prompt: `You are the official AI Assistant for LinkQR AI. 

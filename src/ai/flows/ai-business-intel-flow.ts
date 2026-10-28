@@ -41,7 +41,7 @@ export type AIBusinessIntelOutput = z.infer<typeof AIBusinessIntelOutputSchema>;
 
 const intelPrompt = ai.definePrompt({
   name: 'generateBusinessIntelPrompt',
-  model: 'googleai/gemini-flash-latest',
+  model: 'googleai/gemini-3.8-flash',
   input: {schema: AIBusinessIntelInputSchema},
   output: {schema: AIBusinessIntelOutputSchema},
   prompt: `Analyze the business metrics for {{{userName}}}.`,

@@ -25,7 +25,7 @@ export type GenerateExpiryEmailOutput = z.infer<typeof GenerateExpiryEmailOutput
 
 const emailPrompt = ai.definePrompt({
   name: 'generateExpiryEmailPrompt',
-  model: 'googleai/gemini-flash-latest',
+  model: 'googleai/gemini-3.8-flash',
   input: {schema: GenerateExpiryEmailInputSchema},
   output: {schema: GenerateExpiryEmailOutputSchema},
   prompt: `Create a friendly reminder email for {{{userName}}}.`,

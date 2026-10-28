@@ -19,7 +19,7 @@ const FilterAnomalousScansOutputSchema = z.object({
 
 const anomalyPrompt = ai.definePrompt({
   name: 'filterAnomalousScansPrompt',
-  model: 'googleai/gemini-flash-latest',
+  model: 'googleai/gemini-3.8-flash',
   input: {schema: FilterAnomalousScansInputSchema},
   output: {schema: FilterAnomalousScansOutputSchema},
   prompt: `You are a Cyber Security Expert. 
