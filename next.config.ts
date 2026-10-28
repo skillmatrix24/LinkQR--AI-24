@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 /**
- * Next.js Configuration for LinkQR AI - Final Stable Build
+ * Next.js Configuration for LinkQR AI
  */
 const nextConfig: NextConfig = {
   output: "standalone",
@@ -17,7 +17,9 @@ const nextConfig: NextConfig = {
       "https://*.cloudworkstations.dev",
       "https://*.firebaseapp.com",
       "https://*.web.app",
-      "https://*.firebase-preview.app"
+      "https://*.firebase-preview.app",
+      "https://*.aistudio.google.com",
+      "https://*.googleusercontent.com"
     ].join(' ');
 
     return [

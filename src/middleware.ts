@@ -1,4 +1,3 @@
-
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
@@ -27,10 +26,12 @@ export function middleware(request: NextRequest) {
     "https://*.cloudworkstations.dev",
     "https://*.firebaseapp.com",
     "https://*.web.app",
-    "https://*.firebase-preview.app"
+    "https://*.firebase-preview.app",
+    "https://*.aistudio.google.com",
+    "https://*.googleusercontent.com"
   ].join(' ');
 
-  response.headers.set('Content-Security-Policy', `frame-ancestors ${frameAncestors}`);
+  // response.headers.set('Content-Security-Policy', `frame-ancestors ${frameAncestors}`);
   response.headers.delete('X-Frame-Options');
   response.headers.set('X-Content-Type-Options', 'nosniff');
   response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
