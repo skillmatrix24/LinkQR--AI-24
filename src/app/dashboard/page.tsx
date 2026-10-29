@@ -175,7 +175,7 @@ export default function DashboardPage() {
     <div className="space-y-8 max-w-7xl mx-auto pb-12 px-2 sm:px-4">
       
       {/* GLOBAL STATS HUD */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
         {[
           { title: "Total Interaction", value: totalScans.toLocaleString(), sub: "Lifetime Volume", icon: Activity, color: "text-blue-600", bg: "bg-blue-50" },
           { title: "Active Today", value: todayScans.toLocaleString(), sub: "Last 24 Hours", icon: Zap, color: "text-emerald-600", bg: "bg-emerald-50" },
@@ -183,15 +183,15 @@ export default function DashboardPage() {
           { title: "Shield Status", value: flaggedScans.toLocaleString(), sub: "Bots Filtered", icon: ShieldCheck, color: "text-orange-500", bg: "bg-orange-50" },
         ].map((s, i) => (
           <Card key={i} className="border-none shadow-sm bg-white rounded-2xl group hover:shadow-xl transition-all">
-             <CardContent className="p-6">
-                <div className="flex items-center justify-between mb-4">
-                   <div className={cn("p-3 rounded-xl shadow-inner", s.bg, s.color)}><s.icon className="h-5 w-5" /></div>
-                   <Badge variant="outline" className="text-[8px] font-black uppercase tracking-widest border-primary/20">LIVE</Badge>
+             <CardContent className="p-4 sm:p-6">
+                <div className="flex items-center justify-between mb-2 sm:mb-4">
+                   <div className={cn("p-2 sm:p-3 rounded-xl shadow-inner", s.bg, s.color)}><s.icon className="h-4 w-4 sm:h-5 sm:w-5" /></div>
+                   <Badge variant="outline" className="text-[7px] sm:text-[8px] font-black uppercase tracking-widest border-primary/20">LIVE</Badge>
                 </div>
-                <p className="text-3xl font-black tracking-tighter">{s.value}</p>
+                <p className="text-xl sm:text-3xl font-black tracking-tighter">{s.value}</p>
                 <div className="flex flex-col mt-1">
-                   <span className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">{s.title}</span>
-                   <span className="text-[9px] font-bold text-muted-foreground/50 uppercase tracking-tighter">{s.sub}</span>
+                   <span className="text-[8px] sm:text-[10px] font-black text-muted-foreground uppercase tracking-widest">{s.title}</span>
+                   <span className="text-[7px] sm:text-[9px] font-bold text-muted-foreground/50 uppercase tracking-tighter">{s.sub}</span>
                 </div>
              </CardContent>
           </Card>

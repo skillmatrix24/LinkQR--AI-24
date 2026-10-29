@@ -108,7 +108,10 @@ const FAQS = [
   { q: "Does the QR code image change when I update the link?", a: "No, that's the primary benefit! You can print your QR once and change the destination a thousand times." },
   { q: "Can I track scans in real-time?", a: "Yes! Every scan is tracked instantly. You can see the IP address, device type, and location of your scanners directly in your dashboard." },
   { q: "How does AI Bot Filtering work?", a: "Our GenAI engine analyzes scan signatures to detect and filter out automated crawlers and bots, ensuring your marketing data represents real human interactions only." },
-  { q: "What happens if my plan expires?", a: "All your Smart Links and Pages are automatically protected and blocked from access until renewal. You will receive alerts 7 days before expiry." }
+  { q: "What happens if my plan expires?", a: "All your Smart Links and Pages are automatically protected and blocked from access until renewal. You will receive alerts 7 days before expiry." },
+  { q: "Can I use custom domains?", a: "Yes, you can white-label your QR codes with your own CNAME domain." },
+  { q: "Is it secure?", a: "We use enterprise-grade encryption and AI-driven fraud protection." },
+  { q: "Do I need technical skills?", a: "No, our builder is designed for zero-code usage." }
 ];
 
 const HOW_IT_WORKS = [
@@ -270,7 +273,7 @@ export default function LandingPage() {
                 <p className="text-[10px] font-bold uppercase tracking-[0.1em] text-muted-foreground">{stat.label}</p>
                 {stat.value === "⭐⭐⭐⭐⭐" ? (
                   <div className="flex gap-0.5 text-amber-400 py-1">
-                    {[1, 2, 3, 4, 5].map(s => <Star key={s} className="h-5 w-5 fill-amber-400" />)}
+                    {[1, 2, 3, 4, 5].map(s => <Star key={s} className="h-6 w-6 text-yellow-500 fill-yellow-400 drop-shadow-[0_2px_1px_rgba(0,0,0,0.3)]" />)}
                   </div>
                 ) : (
                   <p className="text-xl sm:text-3xl font-black text-foreground tracking-tighter">{stat.value}</p>
@@ -442,7 +445,7 @@ export default function LandingPage() {
               ))}
            </div>
            <div className="mt-16 text-center">
-              <Button variant="outline" className="rounded-xl h-14 px-10 border-2 font-black text-xs uppercase tracking-widest bg-neutral-50 hover:bg-white shadow-sm" asChild>
+              <Button variant="outline" className="rounded-xl h-14 px-10 border-2 font-black text-xs uppercase tracking-widest bg-neutral-50 hover:bg-white hover:border-primary hover:text-primary transition-all duration-300 shadow-sm" asChild>
                  <Link href="/dashboard/qrs/new">CREATE MY INDUSTRY QR</Link>
               </Button>
            </div>
@@ -585,17 +588,27 @@ export default function LandingPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 bg-neutral-50/50 px-4">
+      <section className="py-8 sm:py-16 bg-neutral-50/50 px-4">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12 space-y-3"><h2 className="text-2xl sm:text-5xl font-black">Help Center</h2></div>
-          <Accordion type="single" collapsible className="w-full space-y-3 sm:space-y-4">
-            {FAQS.map((faq, i) => (
-              <AccordionItem key={i} value={`item-${i}`} className="bg-neutral-50 border border-neutral-100 rounded-xl sm:rounded-2xl px-5 sm:px-8 overflow-hidden transition-all hover:shadow-md">
-                <AccordionTrigger className="font-bold text-sm sm:text-lg text-left hover:no-underline py-4 sm:py-6">{faq.q}</AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed text-xs sm:text-base pb-6">{faq.a}</AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+          <div className="text-center mb-6 sm:mb-12 space-y-3"><h2 className="text-2xl sm:text-5xl font-black">FAQs Center</h2></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+             <Accordion type="single" collapsible className="w-full space-y-3 sm:space-y-4">
+               {FAQS.slice(0, 4).map((faq, i) => (
+                 <AccordionItem key={i} value={`item-${i}`} className="bg-neutral-50 border border-neutral-100 rounded-xl sm:rounded-2xl px-4 sm:px-8 overflow-hidden transition-all hover:shadow-md">
+                   <AccordionTrigger className="font-bold text-sm sm:text-lg text-left hover:no-underline py-3 sm:py-6">{faq.q}</AccordionTrigger>
+                   <AccordionContent className="text-muted-foreground leading-relaxed text-xs sm:text-base pb-4 sm:pb-6">{faq.a}</AccordionContent>
+                 </AccordionItem>
+               ))}
+             </Accordion>
+             <Accordion type="single" collapsible className="w-full space-y-3 sm:space-y-4">
+               {FAQS.slice(4, 8).map((faq, i) => (
+                 <AccordionItem key={i+4} value={`item-${i+4}`} className="bg-neutral-50 border border-neutral-100 rounded-xl sm:rounded-2xl px-4 sm:px-8 overflow-hidden transition-all hover:shadow-md">
+                   <AccordionTrigger className="font-bold text-sm sm:text-lg text-left hover:no-underline py-3 sm:py-6">{faq.q}</AccordionTrigger>
+                   <AccordionContent className="text-muted-foreground leading-relaxed text-xs sm:text-base pb-4 sm:pb-6">{faq.a}</AccordionContent>
+                 </AccordionItem>
+               ))}
+             </Accordion>
+          </div>
         </div>
       </section>
 
@@ -607,7 +620,7 @@ export default function LandingPage() {
            <h2 className="text-3xl sm:text-8xl font-black tracking-tighter leading-[1.0] mb-8">Ready to <span className="text-accent italic">Automate</span> Your Growth?</h2>
            <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
               <Button size="lg" className="h-16 sm:h-20 px-8 sm:px-16 rounded-2xl sm:rounded-[2rem] font-black text-base sm:text-xl shadow-2xl bg-white text-primary hover:bg-neutral-100 gap-3" asChild><Link href="/signup">START FREE TRIAL <Zap className="h-6 w-5 fill-current" /></Link></Button>
-              <Button size="lg" variant="outline" className="h-16 sm:h-20 px-8 sm:px-16 rounded-2xl sm:rounded-[2rem] font-black text-base sm:text-xl border-2 sm:border-4 border-white/20 text-white hover:bg-white/10" asChild><Link href="/contact">BOOK EXPERT DEMO</Link></Button>
+              <Button size="lg" variant="outline" className="h-16 sm:h-20 px-8 sm:px-16 rounded-2xl sm:rounded-[2rem] font-black text-base sm:text-xl border-2 sm:border-4 border-black/20 text-black hover:bg-white hover:text-accent transition-all duration-300" asChild><Link href="/contact">BOOK EXPERT DEMO</Link></Button>
            </div>
            <p className="text-[10px] sm:text-sm font-bold opacity-60 uppercase tracking-[0.3em]">Join 5,000+ successful business owners today.</p>
         </div>
