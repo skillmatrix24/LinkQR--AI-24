@@ -40,10 +40,10 @@ export function middleware(request: NextRequest) {
       ? "'self' https://linkqr.in https://www.linkqr.in"
       : "'self'";
 
-  //  response.headers.set(
-  //    'Content-Security-Policy',
-  //    `frame-ancestors ${frameAncestors}`
-  //  );
+    response.headers.set(
+      'Content-Security-Policy',
+      `frame-ancestors ${frameAncestors}`
+    );
   }
   // If in Preview, we skip setting Content-Security-Policy header entirely
   // allowing platform defaults to take over.
